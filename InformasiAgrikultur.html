@@ -53,7 +53,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h4><i class="fa-solid fa-mars"></i> </i>Jumlah Penduduk </h4>
+                <h4><i class="fa-solid fa-building-wheat"></i> </i>Kondisi Agrikultur</h4>
             </div>
             <div class="card-body">
                 <div id="chart">
@@ -68,7 +68,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-brands fa-wizards-of-the-coast"></i>Info</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i
+                            class="fa-brands fa-wizards-of-the-coast"></i>Info</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -97,70 +98,55 @@
     <script>
         var options = {
             series: [{
-                name: 'Jumlah Penduduk',
-                data: [97.502, 55.821, 61.330]
+                name: 'Luas Panen (Ha)',
+                data: [825, 845.71]
+            }, {
+                name: 'Produktivitas (Ku/Ha)',
+                data: [69.70, 69.91]
+            }, {
+                name: 'Produksi (Ton)',
+                data: [5750.19, 5912.16]
+            }, {
+                name: 'Produksi Padi (Ton GKG)',
+                data: [5750.19, 5912.16]
+            }, {
+                name: 'Produksi Padi Setara Beras (Ton)',
+                data: [3320.29,	3413.80]
             },],
             chart: {
                 type: 'bar',
                 height: 350,
-                colors: ['#FFEBCD']
+                stacked: true,
+                stackType: '100%'
             },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels:{
-                        position:'top',
-                    },
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-                
-            },
-            
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    legend: {
+                        position: 'bottom',
+                        offsetX: -10,
+                        offsetY: 0
+                    }
+                }
+            }],
             xaxis: {
-                categories: ['Batu', 'Junrejo', 'Bumiaji',],
-                title: {
-                    text: 'KECAMATAN'
-                }
-            },
-            yaxis: {
-                title: {
-                    text: 'JIWA'
-                }
+                categories: ['2021', '2022'],
             },
             fill: {
                 opacity: 1
             },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return "" + val + " " + "Jiwa"
-                    }
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                    return val ;
-                },
-                offsetY: -20,
-                style: {
-                    fontSize: '12px',
-                    colors: ["#304758"]
-                }
+            legend: {
+                position: 'right',
+                offsetX: 0,
+                offsetY: 50
             },
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
+
+
+
     </script>
 </body>
 
