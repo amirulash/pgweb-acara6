@@ -1,2 +1,4 @@
 # pgweb-acara6
-Data Kota Batu Jawa Timur Indonesia
+Website Infografik Kota Batu Jawa Timur Indonesia
+Untuk Mengakses Website dapat Menuju Pada Tautan Berikut:
+https://amirulash.github.io/pgweb-acara6/ 
