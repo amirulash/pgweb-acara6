@@ -37,7 +37,8 @@
                             <li><a class="dropdown-item" href="pendudukjeniskelamin.html">Penduduk Jenis Kelamin</a>
                             </li>
                             <li><a class="dropdown-item" href="jenisagama.html">Penduduk Jenis Agama</a></li>
-                            
+                            <li><a class="dropdown-item" href="Jumlahcurahhujan.html">Jumlah Curah Hujan</a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -52,7 +53,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h4><i class="fa-solid fa-globe"></i>Jumlah Penduduk </h4>
+                <h4><i class="fa-solid fa-globe"></i>Penduduk Jenis Agama</h4>
             </div>
             <div class="card-body">
                 <div id="chart">
@@ -98,10 +99,59 @@
         var options = {
             series: [ 92114, 5084, 2054, 56, 293 ],
             chart: {
+                width: 380,
                 type: 'donut',
-                width: 400
+                dropShadow: {
+                    enabled: true,
+                    color: '#111',
+                    top: -1,
+                    left: 3,
+                    blur: 3,
+                    opacity: 0.2
+                }
+            },
+            stroke: {
+                width: 0,
+            },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        labels: {
+                            show: true,
+                            total: {
+                                showAlways: true,
+                                show: true
+                            }
+                        }
+                    }
+                }
             },
             labels:['Islam', 'Protestan', 'Katolik', 'Hindu', 'Budha'],
+            dataLabels: {
+                dropShadow: {
+                    blur: 3,
+                    opacity: 0.8
+                }
+            },
+            fill: {
+                type: 'pattern',
+                opacity: 1,
+                pattern: {
+                    enabled: true,
+                    style: ['verticalLines', 'squares', 'horizontalLines', 'circles', 'slantedLines'],
+                },
+            },
+            states: {
+                hover: {
+                    filter: 'none'
+                }
+            },
+            theme: {
+                palette: 'palette2'
+            },
+            title: {
+                text: "Presentase Penduduk Berdasarkan Agama"
+            },
             responsive: [{
                 breakpoint: 480,
                 options: {
@@ -120,26 +170,10 @@
 
 
 
-        var options = {
-            series: [{
-                name: 'Jumlah Penduduk Agama',
-                data: [97.502, 55.821, 61.330]
-            },],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels: {
-                        position: 'top',
-                    },
-                },
-            }
-        }
+
+
+
+
     </script>
 </body>
 

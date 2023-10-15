@@ -36,6 +36,7 @@
                             <li><a class="dropdown-item" href="index.html">Jumlah Penduduk</a></li>
                             <li><a class="dropdown-item" href="pendudukjeniskelamin.html">Penduduk Jenis Kelamin</a></li>
                             <li><a class="dropdown-item" href="jenisagama.html">Penduduk Jenis Agama</a></li>
+                            <li><a class="dropdown-item" href="Jumlahcurahhujan.html">Jumlah Curah Hujan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -50,7 +51,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h4><i class="fa-solid fa-mars"></i></i>Jumlah Penduduk </h4>
+                <h4><i class="fa-solid fa-cloud-sun"></i></i>Kondisi Klimatologis</h4>
             </div>
             <div class="card-body">
                 <div id="chart">
@@ -65,7 +66,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-brands fa-wizards-of-the-coast"></i>Info</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i
+                            class="fa-brands fa-wizards-of-the-coast"></i>Info</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -93,68 +95,78 @@
 
     <script>
         var options = {
-            series: [{
-                name: 'Jumlah Penduduk',
-                data: [97.502, 55.821, 61.330]
-            },],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels:{
-                        position:'top',
-                    },
+            series: [
+                {
+                    name: "Temperatur ",
+                    data: [23, 23, 23, 23, 24, 21, 21, 21, 22, 23, 24, 22]
                 },
+                {
+                    name: "Hari Hujan",
+                    data: [11, 18, 22, 19, 4, 8, 2, 7, 7, 25, 16, 18]
+                },
+                
+            ],
+            chart: {
+                height: 400,
+                type: 'line',
+                dropShadow: {
+                    enabled: true,
+                    color: '#000',
+                    top: 18,
+                    left: 7,
+                    blur: 10,
+                    opacity: 0.2
+                },
+                toolbar: {
+                    show: false
+                }
             },
+            colors: ['#FF0000', '#545454'],
             dataLabels: {
-                enabled: false
+                enabled: true,
             },
             stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
+                curve: 'smooth'
+            },
+            title: {
+                text: 'Periode Tahun 2022',
+                align: 'left'
+            },
+            grid: {
+                borderColor: '#e7e7e7',
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            markers: {
+                size: 1
             },
             xaxis: {
-                categories: ['Batu', 'Junrejo', 'Bumiaji',],
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Agust', 'Sept', 'Okt', 'Nov', 'Des'],
                 title: {
-                    text: 'KECAMATAN'
+                    text: 'Month'
                 }
             },
             yaxis: {
                 title: {
-                    text: 'JIWA'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return "" + val + " " + "Jiwa"
-                    }
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                    return val ;
+                    text: 'Temperatur (°C) & Jumlah Hari Hujan'
                 },
-                offsetY: -20,
-                style: {
-                    fontSize: '12px',
-                    colors: ["#304758"]
-                }
+                min: 5,
+                max: 40
             },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -25,
+                offsetX: -5
+            }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
+
     </script>
 </body>
 
